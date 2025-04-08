@@ -33,21 +33,24 @@ function getHumanChoice(){
     return choice.toLowerCase();
 }
 
-//everything below here is just a preliminary implementation of the playRound function. will continue next time
+//the game itself.  Game is a race to 5.  Whoever scores 5 in Rock Paper Scissors will win.  The Odin Project only requires to have the game do 5 rounds.  I just wanted the game to be a race to 5.  
+//playGame() function is called if the scores are less than 4.  game will stop once someone scores 5.
 
-function playRound(humanChoice, computerChoice) {
+function playGame(){
+  function playRound(humanChoice, computerChoice) {
     if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper") 
     ) {
+        console.log("Player wins this round!")
         humanScore = humanScore + 1;
         return humanScore
     } else if (humanChoice === computerChoice){
-        humanScore = humanScore +1;
-        computerScore = computerScore +1;
+        console.log("It's a Draw!")
         return humanScore , computerScore;
     } else {
+        console.log("Computer wins this round!")
         computerScore = computerScore +1;
         return computerScore;
     }
@@ -64,6 +67,21 @@ console.log("Computer Choice = " + computerSelection);
 console.log("Player Score = " + humanScore);
 console.log("Computer Score = " + computerScore);
 
+if (humanScore <= 4 && computerScore <=4){
+    playGame();
+} else if (humanScore === 5){
+    console.log("Player Win!")
+} else if (computerScore === 5){
+    console.log("Player Lose!")
+  }
+}
+playGame();
+
+//below this comment is the actual solution to have the game terminate after 5 rounds.  replace the code starting from the last if statement until the last else if statement
+
+// if (humanScore + computerScore <=4){
+//     playGame();
+//  }
 
 
 
