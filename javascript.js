@@ -35,14 +35,34 @@ function getHumanChoice(){
 
 //everything below here is just a preliminary implementation of the playRound function. will continue next time
 
-//function playRound(humanChoice, computerChoice) {
-    //
-//}
+function playRound(humanChoice, computerChoice) {
+    if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper") 
+    ) {
+        humanScore = humanScore + 1;
+        return humanScore
+    } else if (humanChoice === computerChoice){
+        humanScore = humanScore +1;
+        computerScore = computerScore +1;
+        return humanScore , computerScore;
+    } else {
+        computerScore = computerScore +1;
+        return computerScore;
+    }
+    
+}
 
-//const humanSelection = getHumanChoice();
-//const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
-//playRound(humanSelection, computerSelection);
+playRound(humanSelection, computerSelection);
+
+console.log("Player Choice = " + humanSelection);
+console.log("Computer Choice = " + computerSelection);
+console.log("Player Score = " + humanScore);
+console.log("Computer Score = " + computerScore);
 
 
 
